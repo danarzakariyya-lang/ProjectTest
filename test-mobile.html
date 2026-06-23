@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Mobile Navbar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; padding-top: 80px; }
+    
+    /* Navbar mobile-first */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+      color: #0ea5e9;
+    }
+    
+    /* Hamburger */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      cursor: pointer;
+      background: #f0f9ff;
+      border: 1px solid #0ea5e9;
+      border-radius: 8px;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #0c4a6e;
+      border-radius: 2px;
+    }
+    
+    /* Nav links - hidden on mobile */
+    .nav-links {
+      display: none;
+      list-style: none;
+    }
+    
+    /* Drawer saat open */
+    .nav-links.open {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(75vw, 260px);
+      background: white;
+      padding: 64px 12px 24px;
+      z-index: 999;
+      box-shadow: -6px 0 30px rgba(0,0,0,0.15);
+      animation: slideIn 0.28s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    
+    .nav-links.open li { width: 100%; }
+    .nav-links.open a {
+      display: block;
+      padding: 13px 14px;
+      color: #0c4a6e;
+      text-decoration: none;
+      border-bottom: 1px solid #e0f2fe;
+    }
+    
+    /* Tombol close */
+    .nav-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid #0ea5e9;
+      background: #f0f9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      color: #0c4a6e;
+    }
+    
+    /* Overlay */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+    }
+    .nav-overlay.show { display: block; }
+    
+    /* Desktop - hide hamburger, show nav */
+    @media (min-width: 900px) {
+      .hamburger { display: none; }
+      .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        gap: 8px;
+        width: auto;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+      }
+      .nav-links a {
+        padding: 7px 12px;
+        border-bottom: none;
+      }
+      .nav-close-btn { display: none; }
+    }
+    
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .content h1 {
+      margin-bottom: 16px;
+    }
+    .content p {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .status {
+      background: #f0f9ff;
+      border: 1px solid #0ea5e9;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">🏊 NarzPool</div>
+      <ul class="nav-links" id="navLinks">
+        <button class="nav-close-btn" id="navClose">×</button>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Layanan</a></li>
+        <li><a href="#">Galeri</a></li>
+        <li><a href="#">Paket</a></li>
+        <li><a href="#">Testimoni</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" id="overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <h1>✅ Test Navbar Mobile</h1>
+    
+    <div class="status">
+      <h3>📱 Instruksi Test:</h3>
+      <ol>
+        <li>Buka halaman ini di HP Android Anda</li>
+        <li>Klik tombol hamburger (≡) di kanan atas</li>
+        <li>Menu drawer harus muncul dari kanan</li>
+        <li>Klik tombol × di kanan atas drawer untuk menutup</li>
+        <li>Atau klik area gelap di luar drawer</li>
+      </ol>
+    </div>
+    
+    <h2>Status Navbar:</h2>
+    <p><strong>Mobile (< 900px):</strong> Hamburger terlihat, nav links tersembunyi</p>
+    <p><strong>Desktop (≥ 900px):</strong> Nav links terlihat horizontal, hamburger tersembunyi</p>
+    
+    <h2>Fitur yang Harus Bekerja:</h2>
+    <ul>
+      <li>✅ Klik hamburger → drawer slide dari kanan</li>
+      <li>✅ Klik tombol × → drawer tutup</li>
+      <li>✅ Klik overlay hitam → drawer tutup</li>
+      <li>✅ Klik link menu → drawer tutup</li>
+      <li>✅ Navbar tidak terpotong di bagian atas</li>
+      <li>✅ Navbar full-width di mobile</li>
+    </ul>
+    
+    <p style="margin-top: 40px; padding: 20px; background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px;">
+      <strong>⚠️ Jika navbar masih bermasalah:</strong><br>
+      1. Clear cache browser (Settings → Privacy → Clear browsing data)<br>
+      2. Atau buka dalam mode Incognito/Private<br>
+      3. Hard refresh: Ctrl+F5 (PC) atau pull to refresh (Mobile)
+    </p>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('overlay');
+    const navClose = document.getElementById('navClose');
+
+    const openNav = () => {
+      navLinks.classList.add('open');
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      console.log('✅ Drawer opened');
+    };
+
+    const closeNav = () => {
+      navLinks.classList.remove('open');
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      console.log('✅ Drawer closed');
+    };
+
+    hamburger.addEventListener('click', () => {
+      if (navLinks.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    overlay.addEventListener('click', closeNav);
+    navClose.addEventListener('click', closeNav);
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNav();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    console.log('🚀 Navbar script loaded');
+  </script>
+
+</body>
+</html>

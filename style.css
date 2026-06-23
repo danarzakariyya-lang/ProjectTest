@@ -88,33 +88,39 @@ ul{list-style:none}
 .center-btn{text-align:center}
 
 /* ===== NAVBAR ===== */
+/* VERSION 4 — MOBILE-FIRST CLEAN */
+
+/* MOBILE: navbar full-width, nempel di atas (tidak menggunakan floating pill) */
 .navbar{
   position:fixed;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  width:calc(100% - 20px);
-  max-width:1160px;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
   z-index:1000;
-  padding:11px 16px;
-  border-radius:16px;
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(14,165,233,.18);
-  box-shadow:0 2px 16px rgba(14,165,233,.1);
-  transition:all .3s ease;
-}
-.navbar.scrolled,
-.navbar[data-inner="true"]{
+  padding:12px 16px;
+  border-radius:0; /* penting: tidak ada border-radius di mobile agar tidak terpotong */
   background:rgba(255,255,255,.97);
-  box-shadow:0 4px 24px rgba(14,165,233,.15);
+  border-bottom:1px solid rgba(14,165,233,.15);
+  box-shadow:0 2px 12px rgba(14,165,233,.1);
+  transition:box-shadow .3s ease;
 }
+.navbar.scrolled{
+  box-shadow:0 4px 20px rgba(14,165,233,.18);
+}
+.navbar[data-inner="true"]{
+  background:rgba(255,255,255,.98) !important;
+}
+
 .nav-container{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
 }
+
 .logo{
   display:flex;
   align-items:center;
@@ -137,11 +143,12 @@ ul{list-style:none}
   letter-spacing:-.5px;
 }
 
-/* Nav links — hidden on mobile by default */
+/* Nav links: tersembunyi di mobile */
 .nav-links{
   display:none;
   list-style:none;
 }
+
 .nav-links a{
   text-decoration:none;
   color:var(--muted);
@@ -162,22 +169,21 @@ ul{list-style:none}
   padding:8px 18px !important;
   border-radius:50px !important;
   font-weight:600 !important;
-  box-shadow:0 3px 12px rgba(14,165,233,.35) !important;
 }
 
-/* Hamburger button */
+/* Hamburger */
 .hamburger{
   display:flex;
   flex-direction:column;
   justify-content:center;
   gap:5px;
-  width:36px;
-  height:36px;
-  padding:7px;
+  width:40px;
+  height:40px;
+  padding:8px;
   cursor:pointer;
-  border-radius:8px;
+  border-radius:10px;
   background:rgba(14,165,233,.08);
-  border:1px solid rgba(14,165,233,.15);
+  border:1.5px solid rgba(14,165,233,.2);
   flex-shrink:0;
 }
 .hamburger span{
@@ -189,46 +195,47 @@ ul{list-style:none}
   transition:all .3s ease;
 }
 
-/* Overlay belakang drawer */
+/* Overlay */
 .nav-overlay{
   display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.5);
   z-index:998;
-  -webkit-tap-highlight-color:transparent;
 }
 .nav-overlay.show{ display:block; }
 
-/* Drawer slide-in dari kanan */
+/* Drawer */
 .nav-links.open{
   display:flex !important;
   flex-direction:column;
-  gap:4px;
+  gap:0;
   position:fixed;
   top:0;
   right:0;
   bottom:0;
-  width:min(76vw, 280px);
+  width:min(75vw, 260px);
   background:#fff;
-  padding:72px 16px 32px;
+  padding:64px 12px 24px;
   z-index:999;
   overflow-y:auto;
-  box-shadow:-4px 0 32px rgba(0,0,0,.14);
+  box-shadow:-6px 0 30px rgba(0,0,0,.15);
   border-left:1px solid rgba(14,165,233,.12);
-  /* animasi masuk */
-  animation:slideIn .28s ease;
+  animation:drawerIn .28s ease;
 }
-@keyframes slideIn{
-  from{transform:translateX(100%);opacity:.5}
-  to{transform:translateX(0);opacity:1}
+@keyframes drawerIn{
+  from{ transform:translateX(100%); }
+  to{   transform:translateX(0); }
 }
-.nav-links.open li{ width:100%; }
+.nav-links.open li{
+  width:100%;
+}
 .nav-links.open a{
   display:block;
+  width:100%;
   font-size:15px;
   font-weight:600;
-  padding:13px 16px;
+  padding:13px 14px;
   color:var(--text);
   border-radius:var(--r-sm);
   border-bottom:1px solid rgba(14,165,233,.07);
@@ -241,30 +248,28 @@ ul{list-style:none}
   border-bottom:none;
 }
 .nav-links.open .nav-cta{
-  margin-top:14px;
-  display:block;
+  margin-top:12px;
   text-align:center;
-  padding:13px 16px !important;
+  padding:13px 14px !important;
   border-radius:var(--r-md) !important;
 }
 
-/* Tombol close (X) di dalam drawer */
+/* Tombol × di dalam drawer */
 .nav-close-btn{
   position:absolute;
-  top:16px;
-  right:16px;
-  width:36px;
-  height:36px;
+  top:14px;
+  right:14px;
+  width:34px;
+  height:34px;
   border-radius:50%;
-  border:1px solid rgba(14,165,233,.2);
-  background:rgba(14,165,233,.07);
+  border:1.5px solid rgba(14,165,233,.2);
+  background:rgba(14,165,233,.06);
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-  font-size:16px;
+  font-size:15px;
   color:var(--muted);
-  flex-shrink:0;
 }
 
 
@@ -283,7 +288,7 @@ ul{list-style:none}
 
 .hero-content{
   position:relative;z-index:2;text-align:center;
-  width:100%;padding:88px 20px 24px;
+  width:100%;padding:76px 20px 24px;
   flex:1;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
 }
@@ -342,9 +347,9 @@ ul{list-style:none}
 
 /* ===== PAGE HERO (halaman dalam) ===== */
 .page-hero{
-  position:relative;min-height:260px;
+  position:relative;min-height:240px;
   display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:90px 16px 40px;overflow:hidden;
+  text-align:center;padding:80px 16px 36px;overflow:hidden;
   background:linear-gradient(160deg,#e0f2fe,#bae6fd,#cffafe);
 }
 .page-hero-img .page-hero-bg{
@@ -690,8 +695,27 @@ ul{list-style:none}
   section.galeri-page,section.paket-page,section.testimoni-page,
   section.kontak-page,section.rating-summary{padding:80px 0}
 
-  /* Navbar desktop */
-  .navbar{ top:16px; padding:14px 28px; }
+  /* Navbar desktop: kembali ke pill floating */
+  .navbar{
+    top:14px;
+    left:50%;
+    right:auto;
+    width:calc(100% - 48px);
+    max-width:1160px;
+    transform:translateX(-50%);
+    border-radius:18px;
+    padding:13px 28px;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(14,165,233,.18);
+    box-shadow:0 4px 20px rgba(14,165,233,.12);
+  }
+  .navbar.scrolled{
+    background:rgba(255,255,255,.97);
+    box-shadow:0 6px 28px rgba(14,165,233,.18);
+  }
+  .nav-container{ max-width:none; margin:0; }
   .nav-links{
     display:flex !important;
     position:static;
@@ -712,7 +736,9 @@ ul{list-style:none}
     font-weight:500;
     padding:7px 12px;
     border-bottom:none;
+    display:inline-flex;
   }
+  .nav-close-btn{ display:none; }
   .hamburger{ display:none; }
 
   /* Hero */
@@ -798,7 +824,7 @@ ul{list-style:none}
   .stat-item h2{font-size:38px}
 
   /* Page hero */
-  .page-hero{min-height:320px;padding:100px 28px 48px}
+  .page-hero{min-height:320px;padding:120px 28px 52px}
   .page-hero-content h1{font-size:clamp(40px,6vw,60px)}
 }
 
