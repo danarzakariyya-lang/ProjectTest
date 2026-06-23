@@ -40,12 +40,19 @@ if (hamburger && navLinks) {
   overlay.addEventListener('click', closeNav);
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
-  // Swipe to close
+  // Tombol close (×)
+  const closeBtn = document.getElementById('navClose');
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
+
+  // Swipe kanan untuk tutup
   let tx = 0;
   navLinks.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   navLinks.addEventListener('touchend', e => {
-    if (e.changedTouches[0].clientX - tx > 60) closeNav();
+    if (e.changedTouches[0].clientX - tx > 50) closeNav();
   }, { passive: true });
+
+  // ESC key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
 }
 
 /* ===== COUNTER ANIMATION ===== */
