@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NarzPool - Galeri</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar" data-inner="true">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-swimming-pool"></i>
+        <span>NarzPool</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="galeri.html" class="active">Galeri</a></li>
+        <li><a href="paket.html">Paket</a></li>
+        <li><a href="testimoni.html">Testimoni</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero-img">
+    <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1600&q=80&fit=crop" class="page-hero-bg" alt="Galeri Kolam Renang"/>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <h1>Galeri Proyek</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Beranda</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Galeri</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER -->
+  <section class="galeri-page">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portofolio Kami</span>
+        <h2>Hasil Karya NarzPool</h2>
+        <p>Lebih dari 500 proyek kolam renang yang telah kami selesaikan dengan penuh dedikasi</p>
+      </div>
+
+      <!-- Filter Tombol -->
+      <div class="filter-btns">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="villa">Villa & Rumah</button>
+        <button class="filter-btn" data-filter="hotel">Hotel & Resort</button>
+        <button class="filter-btn" data-filter="apartemen">Apartemen</button>
+        <button class="filter-btn" data-filter="publik">Fasilitas Umum</button>
+      </div>
+
+      <!-- Galeri Grid -->
+      <div class="galeri-masonry" id="galeriGrid">
+
+        <div class="galeri-card" data-category="hotel">
+          <div class="galeri-card-img" style="height:280px">
+            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=700&q=80&fit=crop" alt="Villa Mewah Bali"/>
+            <div class="galeri-card-overlay">
+              <h4>Villa Mewah Bali</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</p>
+              <span class="galeri-tag">Infinity Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="hotel">
+          <div class="galeri-card-img" style="height:220px">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=700&q=80&fit=crop" alt="Grand Hotel Jakarta"/>
+            <div class="galeri-card-overlay">
+              <h4>Grand Hotel Bintang 5</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+              <span class="galeri-tag">Rooftop Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="villa">
+          <div class="galeri-card-img" style="height:260px">
+            <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80&fit=crop" alt="Perumahan Elite Bintaro"/>
+            <div class="galeri-card-overlay">
+              <h4>Perumahan Elite Bintaro</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Tangerang, Indonesia</p>
+              <span class="galeri-tag">Lap Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="hotel">
+          <div class="galeri-card-img" style="height:240px">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=700&q=80&fit=crop" alt="Resort Lombok"/>
+            <div class="galeri-card-overlay">
+              <h4>Resort Lombok Tengah</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Lombok, Indonesia</p>
+              <span class="galeri-tag">Natural Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="apartemen">
+          <div class="galeri-card-img" style="height:300px">
+            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=700&q=80&fit=crop" alt="Apartemen Sudirman Park"/>
+            <div class="galeri-card-overlay">
+              <h4>Apartemen Sudirman Park</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+              <span class="galeri-tag">Indoor Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="villa">
+          <div class="galeri-card-img" style="height:220px">
+            <img src="https://images.unsplash.com/photo-1621275471769-e6aa344546d5?w=700&q=80&fit=crop" alt="Villa Puncak Indah"/>
+            <div class="galeri-card-overlay">
+              <h4>Villa Puncak Indah</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Bogor, Indonesia</p>
+              <span class="galeri-tag">Private Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="publik">
+          <div class="galeri-card-img" style="height:250px">
+            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=700&q=80&fit=crop" alt="Pusat Olahraga"/>
+            <div class="galeri-card-overlay">
+              <h4>Pusat Olahraga Kota</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Bandung, Indonesia</p>
+              <span class="galeri-tag">Olympic Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="villa">
+          <div class="galeri-card-img" style="height:230px">
+            <img src="https://images.unsplash.com/photo-1504174997557-4d5b864f0c4b?w=700&q=80&fit=crop" alt="Rumah Minimalis Modern"/>
+            <div class="galeri-card-overlay">
+              <h4>Rumah Minimalis Modern</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Surabaya, Indonesia</p>
+              <span class="galeri-tag">Mini Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="hotel">
+          <div class="galeri-card-img" style="height:270px">
+            <img src="https://images.unsplash.com/photo-1540539234-c14a20fb7c7b?w=700&q=80&fit=crop" alt="Boutique Resort Ubud"/>
+            <div class="galeri-card-overlay">
+              <h4>Boutique Resort Ubud</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Ubud, Bali</p>
+              <span class="galeri-tag">Plunge Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="apartemen">
+          <div class="galeri-card-img" style="height:240px">
+            <img src="https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=700&q=80&fit=crop" alt="Sky Residence Tower"/>
+            <div class="galeri-card-overlay">
+              <h4>Sky Residence Tower</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Jakarta Barat</p>
+              <span class="galeri-tag">Sky Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="publik">
+          <div class="galeri-card-img" style="height:260px">
+            <img src="https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?w=700&q=80&fit=crop" alt="Hotel Spa Kalimantan"/>
+            <div class="galeri-card-overlay">
+              <h4>Hotel &amp; Spa Kalimantan</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Balikpapan</p>
+              <span class="galeri-tag">Spa Pool</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri-card" data-category="villa">
+          <div class="galeri-card-img" style="height:220px">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=700&q=80&fit=crop" alt="Villa Tropis Sentul"/>
+            <div class="galeri-card-overlay">
+              <h4>Villa Tropis Sentul</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Sentul, Bogor</p>
+              <span class="galeri-tag">Overflow Pool</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="no-result" id="noResult" style="display:none;">
+        <i class="fas fa-search"></i>
+        <p>Tidak ada proyek dalam kategori ini</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ingin Proyek Anda Seperti Ini?</h2>
+        <p>Hubungi kami sekarang dan wujudkan kolam renang impian Anda bersama NarzPool!</p>
+        <div class="cta-btns">
+          <a href="kontak.html" class="btn btn-white">Mulai Proyek <i class="fas fa-arrow-right"></i></a>
+          <a href="paket.html" class="btn btn-outline-white">Lihat Paket Harga</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <i class="fas fa-swimming-pool"></i>
+          <span>NarzPool</span>
+        </a>
+        <p>Spesialis pembangunan dan perawatan kolam renang terpercaya di Indonesia sejak 2009.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="paket.html">Paket Harga</a></li>
+          <li><a href="testimoni.html">Testimoni</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Desain & Konstruksi</a></li>
+          <li><a href="layanan.html">Renovasi Kolam</a></li>
+          <li><a href="layanan.html">Perawatan Rutin</a></li>
+          <li><a href="layanan.html">Sistem Filtrasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Dapatkan tips perawatan kolam dan promo terbaru</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Email Anda"/>
+          <button><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 NarzPool. All Rights Reserved. Dibuat dengan <i class="fas fa-heart"></i> di Indonesia</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
